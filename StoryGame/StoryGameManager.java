@@ -53,7 +53,7 @@ public class StoryGameManager extends GameEngine  {
         int chooseDifficulty = scan.nextInt();
         scan.nextLine();
         DifficultyMode difficultyChosen = DifficultyMode.values()[chooseDifficulty - 1];
-        System.out.println("You have chosen " + difficultyChosen);
+        
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
@@ -121,12 +121,12 @@ public class StoryGameManager extends GameEngine  {
     new WrittenQuestions("15. What will happen if you forget to include a semicolon at the end of a statement in Java? A) The program will still run B) It will throw a syntax error C) The compiler will fix it automatically D) It will ignore the statement", "B", 5)
         }, scan));
 
-        //  System.out.println("Your total grade for your Examination are " + student.getExamScore());
+
         student.setPrelimGrade();
-                System.out.println("Test score for exam: " + student.getQuizScore());
-System.out.println("Test score for quiz: " + student.getRecitationScore());
-        System.out.println("Test score for recitation: " + student.getExamScore());
        System.out.println("Your total Grade for this prelim are: " + student.getPrelimGrade());
+                       System.out.println("score for exam: " + student.getExamScore());
+System.out.println("score for quiz: " + student.getQuizScore());
+        System.out.println("score for recitation: " + student.getRecitationScore());
        midterm.narrate(new String[] {
         "The prelim period is now over and now it is midterm now",
         "Akhito after passing the prelim felt relief",
@@ -173,8 +173,12 @@ new WrittenQuestions("14. Which of the following data types can be used in a swi
 new WrittenQuestions("15. What is the correct syntax to end a switch block? A) end switch; B) break; C) } D) stop;", "C", 5)
 }, scan));
 System.out.println("Your total grade for your examination are " +  student.getExamScore());
+
     student.setMidtermGrade();
     System.out.println("Your total grade for this midterm are: " + student.getMidtermGrade());
+                    System.out.println("score for exam: " + student.getExamScore());
+System.out.println("score for quiz: " + student.getQuizScore());
+        System.out.println("score for recitation: " + student.getRecitationScore());
    student.setRecitationScore(preFinals.recitation(new RecitationQuestions[] {
 new RecitationQuestions("What keyword is used to repeat a block of code a specific number of times? A - loop\n B - for\n C - repeat", "B", 10, "Correct! The 'for' loop is used to repeat code a set number of times — 10 points!", "Not quite, the correct answer is B — the 'for' keyword starts a loop that repeats code."),
 new RecitationQuestions("In a for loop, what part usually updates the loop variable each cycle? A - condition\n B - increment/decrement\n C - initialization", "B", 10, "Good job! The increment/decrement part updates the loop variable — 10 points!", "Not quite, the correct answer is B — it updates the variable after each iteration."),
@@ -206,7 +210,11 @@ new WrittenQuestions("13. Which expression correctly represents a for loop that 
 new WrittenQuestions("14. What is the output of this nested loop? for(int i = 1; i <= 2; i++){ for(int j = 1; j <= 3; j++){ System.out.print(j + ' '); } } A) 1 2 3 1 2 3 B) 1 1 1 2 2 2 C) 3 2 1 3 2 1 D) 1 2 3", "A", 5),
 new WrittenQuestions("15. What happens if you place a semicolon directly after a for loop declaration, like for(int i = 0; i < 5; i++); ? A) Syntax error B) The loop body executes normally C) The loop runs but does nothing D) It becomes an infinite loop", "C", 5)
     }, scan));
-    System.out.println("Your total score for the exam are " + student.getExamScore());
+    student.setPreFinalsGrade();
+       System.out.println("Your total Grade for this prelim are: " + student.getPrelimGrade());
+                       System.out.println("score for exam: " + student.getExamScore());
+System.out.println("score for quiz: " + student.getQuizScore());
+        System.out.println("score for recitation: " + student.getRecitationScore());
     finals.narrate(new String[] {
         "The semester is now over all are completed but one",
         "The finals which teachers gave most heavy tasks with only a limited time of deadline",
@@ -252,7 +260,10 @@ new WrittenQuestions("15. What is an object in Java? A) A variable that stores d
     }, scan));
     System.out.println("Your total score for your examination are " + student.getExamScore());
     student.setFinalsGrade();
-    System.out.println("Your total grade for this midterm are " + student.getFinalsGrade());
+    System.out.println("Your total grade for this finals are " + student.getFinalsGrade());
+                    System.out.println("score for exam: " + student.getExamScore());
+System.out.println("score for quiz: " + student.getQuizScore());
+        System.out.println("score for recitation: " + student.getRecitationScore());
     finals.narrate(new String[] {
         "Now that the final grade has been uploaded in their respective accounts many students including Akhito are checking into their account",
         "Many feel dissapointment many are happy",
@@ -268,11 +279,16 @@ new WrittenQuestions("15. What is an object in Java? A) A variable that stores d
         "Shows only a proof that flower can still bloom even in a chaos"
     });
     student.setTotalGrade();
-    student.setTotalGWA();
+     student.setTotalGWA();
+    System.out.println("Congratulations for finishing Akhitos life story");
+    System.out.println("Here are the summarization of your scores");
+    System.out.println("Prelim Grade: " + student.getPrelimGrade());
+    System.out.println("Midterm Grade: " + student.getMidtermGrade());
+    System.out.println("Pre-Finals Grade: " + student.getPreFinalsGrade());
+    System.out.println("Finals Grade: " + student.getFinalsGrade());
+    System.out.println("Total Grade: " + student.getTotalGrade());
+    System.out.println("GWA: " + student.getTotalGWA());
+   
             return student.getUserGamePoints();
     }
-
-
-    
-    
 }

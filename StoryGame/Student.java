@@ -1,7 +1,7 @@
 package AdventureGame.StoryGame;
 
 public class Student {
-    private String name;
+    private String name = "Akhito Matsumoto";
     private double quizscore;
     private double recitationScore;
     private double examScore;
@@ -60,10 +60,6 @@ public class Student {
         return userGamePoints;
     }
 
-    //setters 
-    public void setName(String name) {
-        this.name = name;
-    }
     public void setQuizScore(double quizscore) {
         this.quizscore = quizscore;
     }
@@ -86,48 +82,48 @@ public class Student {
         this.finalsGrade = ((getExamScore() + getQuizScore() + getRecitationScore()) / 100) * finalsPercentage;
     }
     public void setTotalGrade() {
-        this.totalGrade = getPrelimGrade() + getMidtermGrade() + getPreFinalsGrade() + getFinalsGrade();
+        this.totalGrade = 30;
     }
 
     public void setTotalGWA() {
                 if (getTotalGrade() <= 100 && getTotalGrade() >= 97.50) {
-            studentGWA = 1.00;
+            this.studentGWA = 1.00;
             userGamePoints = 100;
         }
         else if (getTotalGrade() <= 97.49 && getTotalGrade() >= 94.50) {
-            studentGWA = 1.25;
+            this.studentGWA = 1.25;
             userGamePoints = 90;
         }
         else if (getTotalGrade() <= 94.49 && getTotalGrade() >= 91.50) {
-            studentGWA = 1.50;
+            this.studentGWA = 1.50;
             userGamePoints = 80;
         }
         else if (getTotalGrade() <= 91.49 && getTotalGrade() >= 88.50) {
-            studentGWA = 1.75;
+            this.studentGWA = 1.75;
             userGamePoints = 70;
         }else if (getTotalGrade() <= 88.49 && getTotalGrade() >= 85.50) {
-            studentGWA = 2.00;
+            this.studentGWA = 2.00;
             userGamePoints = 60;
         }
         else if (getTotalGrade() <= 85.49 && getTotalGrade() >= 81.50) {
-            studentGWA = 2.25;
+            this.studentGWA = 2.25;
             userGamePoints = 50;
         }
         else if (getTotalGrade() <= 81.49 && getTotalGrade() >= 77.50) {
-            studentGWA = 2.50;
+            this.studentGWA = 2.50;
             userGamePoints = 40;
         }
         else if (getTotalGrade() <= 77.49 && getTotalGrade() >= 73.50) {
-            studentGWA = 2.75;
+            this.studentGWA = 2.75;
             userGamePoints = 30;
         }
         else if (getTotalGrade() <= 73.49 && getTotalGrade() >= 69.50) {
-            studentGWA = 3.00;
+            this.studentGWA = 3.00;
             userGamePoints = 20;
         }
         else if (getTotalGrade() <= 69.49 && getTotalGrade() >= 0.0) {
-            studentGWA = 5.00;
-            userGamePoints = 20;
+            this.studentGWA = 5.00;
+            userGamePoints = 0;
         }
     }
 

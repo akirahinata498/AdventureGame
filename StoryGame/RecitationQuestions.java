@@ -42,8 +42,6 @@ public class RecitationQuestions extends Questions implements CalculateActScore<
         }
                 if (recitationQuestions.getCorrectAnswer().equals(reciteAnswer)) {
                     totalRecitationScores+=recitationQuestions.getPointsGiven();
-                    System.out.println(timeLimit);
-                    System.out.println(elapsedTime);
                     System.out.println(recitationQuestions.getCorrectResponse());
                 }
                 else {

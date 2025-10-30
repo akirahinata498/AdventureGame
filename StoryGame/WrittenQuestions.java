@@ -14,7 +14,7 @@ public class WrittenQuestions extends Questions implements CalculateActScore<Wri
          int totalRecitationScores = 0;
          timeLimit *= 1000;
              for (WrittenQuestions recitationQuestions : question) {
-            System.out.print(recitationQuestions.getQuestionName() );
+            System.out.print(recitationQuestions.getQuestionName() + ": ");
             long startTime = System.currentTimeMillis();
             String writtenAnswer = scan.nextLine();
             long endTime = System.currentTimeMillis();

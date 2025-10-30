@@ -3,7 +3,8 @@ package AdventureGame.SurvivalGame;
 public abstract class Hero implements CharacterActions {
       private WorldLeader worldLeader;
     private String name;
-    private Abilities[] abilities; // ← simple
+    @SuppressWarnings("rawtypes")
+    private Abilities[] abilities; 
     private int attackDamage;
     private String country;
     private String characterDialogue;
@@ -27,6 +28,7 @@ public abstract class Hero implements CharacterActions {
     public String getName() {
         return name;
     }
+    @SuppressWarnings("rawtypes")
     public Abilities[] getAbilities() {
         return abilities;
     }
@@ -58,7 +60,7 @@ public abstract class Hero implements CharacterActions {
     public void setName(String name) {
         this.name = name;
     }
-    public void setAbilities(Abilities[] abilities) {
+    public void setAbilities(@SuppressWarnings("rawtypes") Abilities[] abilities) {
         this.abilities = abilities;
     }
     public void setAttackDamage(int attackDamage) {
@@ -99,6 +101,7 @@ public void takeDamage(int damage) {
     public void heal(int heal) {
         currentHealth += heal;
         if (currentHealth > characterHealth) currentHealth = characterHealth;
+         System.out.println(name + " takes " + heal + " heal! Current HP: " + currentHealth);
     }
 
     

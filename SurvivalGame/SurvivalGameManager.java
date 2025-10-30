@@ -7,7 +7,7 @@ import AdventureGame.GameMechanics.GameEngine;
 import java.util.Arrays;
 
 public class SurvivalGameManager extends GameEngine implements Survival{
-    private int gameScore;
+ 
     private int enemiesDefeated;
     @Override
     public DifficultyMode chooseLevel(Scanner scan) {
@@ -18,7 +18,6 @@ public class SurvivalGameManager extends GameEngine implements Survival{
         int chooseDifficulty = scan.nextInt();
         scan.nextLine();
         DifficultyMode difficultyChosen = DifficultyMode.values()[chooseDifficulty - 1];
-        System.out.println(difficultyChosen);
         return difficultyChosen;
     }
 
@@ -115,8 +114,7 @@ System.out.println(listWorldLeader.getName() + " from the country of " + listWor
 
     @Override
     public int computeGameScore() {
-        int totalGameScore = this.gameScore += 35;
-        System.out.println("Congratulations you won a total of " + totalGameScore);
+        int totalGameScore =  (35 * getEnemiesDefeated());
         return totalGameScore;
     }
 
@@ -152,14 +150,17 @@ System.out.println(listWorldLeader.getName() + " from the country of " + listWor
                     delayBattle();
                 }
                 if (playerHero.getCurrentHealth() <= 0) {
-                    System.out.println("Sorry you lost your total accumulated score are ");
+                    System.out.println("Sorry you lost your total accumulated score are " + computeGameScore());
                     break;
                 }
                 else if (enemyToBattle[i].getCurrentHealth() <= 0) {
-                    System.out.println("You won round " + (i + 1) + "myou will be given an additional score of 35");
+                    System.out.println("You won round " + (i + 1) + " you will be given an additional score of 35");
                    setEnemiesDefeated(getEnemiesDefeated()+1);  
                 }
              }
+        }
+        if (enemiesDefeated > 0) {
+            System.out.println("Congratulations for defeating at least " + getEnemiesDefeated() + " World Leader" + " Your total points are " + computeGameScore());
         }
 
     }
@@ -179,14 +180,12 @@ public void setEnemiesDefeated(int enemiesDefeated) {
        String power = this.choosePower(scan);
        PlayerHero hero = this.chooseHeroLeader(scan, power);
        this.startBattle(scan, hero, power);
-        return 2;
+        return computeGameScore();
     }
-
     public void delayBattle() {
                         try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
     }
